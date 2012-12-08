@@ -1,4 +1,4 @@
 PyCompute
 =========
 
-Small-scale Python distributed computing
+A project for small-scale distributed computing in Python.
