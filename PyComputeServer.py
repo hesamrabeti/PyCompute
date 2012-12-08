@@ -13,6 +13,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
+from time import localtime, strftime, clock, sleep
 import multiprocessing
 from multiprocessing import Queue, AuthenticationError, connection, Process
 import PyComputeMsg

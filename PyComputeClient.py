@@ -75,10 +75,10 @@ class PyComputeClient:
                                                 "AF_INET", self.password)
         except:
             if report == True:
-                print 'PyComputeClient: Error: Unable to connect to rServer.'
+                print 'PyComputeClient: Error: Unable to connect to PyComputeServer.'
             exit(1)
     
-        print 'PyComputeClient: Connected to rServer. ' + self.server_address[0] + \
+        print 'PyComputeClient: Connected to PyComputeServer. ' + self.server_address[0] + \
                 ':' + str(self.server_address[1])
                 
         #Download PyComputeClientProcessRemote.py
@@ -87,7 +87,7 @@ class PyComputeClient:
         
         message_type, message_content = self.conn.recv()
         if message_type != PyComputeMsg.SERVER_SEND_CODE:
-            print 'PyComputeClient: Error: rServer did not send code.'
+            print 'PyComputeClient: Error: PyComputeServer did not send code.'
             exit(1)
 
         #Write the code that we just received to file
