@@ -1,4 +1,6 @@
 '''
+ PyComputeClient by Hesam Rabeti
+
  This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -60,7 +62,7 @@ class PyComputeClient:
     total_tasks_completed = 0
     tasks_completed_since_last = 0
     
-    def __init__(self, server_address=("127.0.0.1", 6666), password='password', 
+    def __init__(self, server_address, password='password', 
                  max_processes=1):
         self.password = password
         self.server_address = server_address
@@ -211,7 +213,7 @@ def main():
     server_address = ("127.0.0.1", 6666)
     password = 'password'
     
-    print "PyComputeClient by Hesam Rabeti v0.01b"
+    print "PyComputeClient by Hesam Rabeti"
     print "Starting on " + strftime("%d %b %Y %H:%M:%S", localtime())
     print "--------------------------------"
 

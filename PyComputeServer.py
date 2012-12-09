@@ -1,4 +1,6 @@
 '''
+ PyComputeServer by Hesam Rabeti
+
  This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -17,10 +19,11 @@ from time import localtime, strftime, clock, sleep
 import multiprocessing
 from multiprocessing import Queue, AuthenticationError, connection, Process
 import PyComputeMsg
+import socket
 
 def ListenForClients(port, password, message_queue, task_queue):
+    listener = connection.Listener((socket.gethostbyname(socket.gethostname()), port), family='AF_INET', backlog=5, authkey=password)
     message_queue.put("PyComputeServer: Listener: Accepting connections on port " + str(port))
-    listener = connection.Listener(('127.0.0.1', port), 'AF_INET', 5, password)
     while True:
         try:
             conn = listener.accept()
@@ -90,7 +93,7 @@ class PyComputeServer:
         self.listener_process = Process(target=ListenForClients, args=(port, 
             password, self.message_queue, self.task_queue))
         self.listener_process.start()
-        print "PyComputeServer by Hesam Rabeti v0.01b"
+        print "PyComputeServer by Hesam Rabeti"
         print "Starting on " + strftime("%d %b %Y %H:%M:%S", localtime())
         print "--------------------------------"    
         
