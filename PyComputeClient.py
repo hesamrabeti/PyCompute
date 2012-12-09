@@ -210,16 +210,20 @@ class PyComputeClient:
 def main():
     #Client mode
     max_processes = multiprocessing.cpu_count() * 2
-    server_address = ("127.0.0.1", 6666)
+    server_address = None #("192.100.100.100", 6666)
     password = 'password'
     
     print "PyComputeClient by Hesam Rabeti"
     print "Starting on " + strftime("%d %b %Y %H:%M:%S", localtime())
     print "--------------------------------"
 
-    client = PyComputeClient(server_address, password, max_processes)
-    
-    client.run()
+    if server_address == None:
+        print "ERROR: Server address has not been specified."
+        print "You must modify 'server_address' in 'main()' to indicate the address of the server."
+        print "Example: server_address = ('192.30.20.10', 6666)"
+    else:
+        client = PyComputeClient(server_address, password, max_processes)
+        client.run()
 
 if __name__ == '__main__':
     main()

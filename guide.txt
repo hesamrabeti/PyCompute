@@ -1,0 +1,15 @@
+How to run exampleApplication.py
+-----------------------------------
+1) Modify the 'server_address' variable in PyComputeClient.py's main() function
+   to point to the server's IP address. 
+   
+   Example: 
+   server_address = ('192.30.20.10', 6666) #(address,port)
+   
+2) Copy PyComputeClient.py to any machine you would like to use as a client
+3) Run 'python PyComputeClient.py' on the client machines
+4) Run 'python exampleApplication.py' on the server machine
+
+Warning: If your server's firewall is on or you client's python session does 
+not have the permission to create sockets, clients will not be able to connect 
+to the server.
