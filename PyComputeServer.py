@@ -98,11 +98,13 @@ class PyComputeServer:
         print "--------------------------------"    
         
     def printMessages(self):
+        printed = False
         try:
             while True: 
                 print self.message_queue.get_nowait()
+                printed = True
         except:
-            return            
+            return printed       
         
     def addTask(self, task):
         self.task_queue.put((self.task_number, task))

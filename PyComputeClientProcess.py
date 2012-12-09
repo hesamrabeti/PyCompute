@@ -23,6 +23,19 @@ class PyComputeClientProcess:
     def processTask(self, task):
         failed = False
         
+        if task[0] == "print":
+            print task[1]
+        elif task[0] == "add":
+            result = 0
+            for number in task[1]:
+                result += number
+            print result
+        elif task[0] == "mult":
+            result = 1
+            for number in task[1]:
+                result *= number
+            print result
+        
         if failed == False:
             return True
         else:
